@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .input-div {
+            padding: 20px;
+        }
+        .input {
+            margin: 5px 0;
+            display: block;
+            padding: 10px;
+            font-size: 18px;
+        }
+        label {
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div class="input-div">
+            <label>Hisobot yilida korxonaning aylanma miqdori: N</label>
+            <input id="input-n" class="input" type="text" placeholder="Enter...">
+        </div>
+        <div class="input-div">
+            <label>Materialning sarfi: A</label>
+            <input id="input-a" class="input" type="text" value="">
+        </div>
+        <div class="input-div">
+            <label>Sarflangan aylanma mablag'lar miqdori: M</label>
+            <input id="input-m" class="input" type="text" value="">
+        </div>
+        <div class="input-div">
+            <label>Rejalashtirilgan yilda materialning narxi: K </label>
+            <input id="input-k" class="input" type="number" value="">
+        </div>
+        <div class="input-div">
+            <label>Rejalashtirilgan yilda aylanma mablag'ning umumiy miqdori: S</label>
+            <input id="input-s" class="input" type="number" value="">
+        </div>
+        <div class="input-div">
+            <button id="check-btn">Tekshirish</button>
+        </div>
+    </form>
+    <script>
+        const n = document.getElementById("input-n")
+        const a = document.getElementById("input-a")
+        const m = document.getElementById("input-m")
+        const k = document.getElementById("input-k")
+        const s = document.getElementById("input-s")
+        const checkBtn = document.getElementById("check-btn")
+        
+        checkBtn.addEventListener("click", (e) => {
+            e.preventDefault()
+            const val = n.value;
+            let A, M, K, S;
+            A = val*0.25;
+            M = val - A;
+            K = A * (1-0.15)
+            S = M + K
+            a.value = A
+            m.value = M
+            k.value = K
+            s.value = S
+        })
+    </script>
+</body>
+</html>
